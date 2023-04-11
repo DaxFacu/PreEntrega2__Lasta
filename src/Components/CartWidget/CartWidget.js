@@ -2,8 +2,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./CartWidget.css";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext, useState } from "../context/CartContext";
 
 const CartWidget = () => {
+  const { getTotalQuantity } = useContext(CartContext);
+  const total = getTotalQuantity();
   let numero = 0;
   return (
     <div className="container-cart">
@@ -20,7 +24,7 @@ const CartWidget = () => {
         <Link to="/cart">
           <ShoppingCartIcon />
           <div className="bubble-counter">
-            <span>{numero}</span>
+            <span>{total}</span>
           </div>
         </Link>
       </Box>

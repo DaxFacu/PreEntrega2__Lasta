@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-const ItemCount = ({ stock, initial = 0, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
   let [contador, SetContador] = useState(initial);
 
+  // useEffect(() => {
+  //   SetContador(initial);
+  // }, [initial]);
   const sumar = () => {
     if (stock > contador) {
       SetContador(contador + 1);
@@ -13,7 +16,7 @@ const ItemCount = ({ stock, initial = 0, onAdd }) => {
   };
 
   const restar = () => {
-    if (contador > 0) {
+    if (contador > 1) {
       SetContador(contador - 1);
     }
   };
@@ -28,7 +31,7 @@ const ItemCount = ({ stock, initial = 0, onAdd }) => {
         <Button onClick={restar} variant="contained" size="small">
           -
         </Button>
-        <Button onClick={onAdd(contador)} variant="outlined" size="small">
+        <Button onClick={() => onAdd(contador)} variant="outlined" size="small">
           Agregar
         </Button>
       </Stack>

@@ -47,6 +47,6 @@ export const products = [
     description: "Resina Dura blanca",
     category: "insumos",
     img: "https://res.cloudinary.com/dsqjrzot3/image/upload/v1678554547/resinaCreality_zuqjnq.webp",
-    alt: "Imagen de la impresora fdm Creality Ender V2",
+    alt: "Imagen de la Resina Creality",
   },
 ];
